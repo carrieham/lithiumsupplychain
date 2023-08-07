@@ -1,0 +1,17 @@
+=============================================================================================================
+  TABLE INFO
+=============================================================================================================
+
+ID: DECENNIALVI2010.P5
+Title: HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE
+
+=============================================================================================================
+  NOTES
+=============================================================================================================
+
+<p>NOTE: For information on the codes used when processing the data in this table, see Appendix F, <a href="http://www.census.gov/prod/cen2010/doc/sfvi.pdf">http://www.census.gov/prod/cen2010/doc/sfvi.pdf</a></p>
+
+Source: U.S. Census Bureau, 2010 Census U.S. Virgin Islands.
+
+NOTE: For information on confidentiality protection, nonsampling error, and definitions, see <a href="http://www.census.gov/prod/cen2010/doc/sfvi.pdf">http://www.census.gov/prod/cen2010/doc/sfvi.pdf</a>.
+
