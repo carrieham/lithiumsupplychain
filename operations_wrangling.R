@@ -246,3 +246,30 @@ operations_final <- bind_rows(operations,operations_new_clean_subset)
 write_csv(operations_final,"lithiumSupplyChainMapData.csv")
 
 
+
+# 
+# Adding icon field for new map app -------------------------------------------------------
+#load latest map data
+operations <- read_csv("lithiumSupplyChainMapData.csv")
+
+#add icon field
+operations_icon <- mutate(operations, Icon=recode(operations[["Supply Chain Segment"]],
+                     "Raw Materials"="Raw Materials",
+                     "Battery Grade Materials"="Raw Materials",
+                     "Other Battery Components and Materials"="Manufacturing", 
+                     "Electrodes and Cells"="Manufacturing",
+                     "Modules and Packs"="Manufacturing",
+                     "Electric Vehicles"="Manufacturing",
+                     "End of Life"="End of Life",
+                     "Equipment"="Support Industries",
+                     "Service and Repair"="Support Industries", 
+                     "Research and Development"="Support Industries", 
+                     "Modeling"="Support Industries", 
+                     "Distributor"="Support Industries"))
+
+#output
+write_csv(operations_icon,"lithiumSupplyChainMapData.csv")
+
+
+
+
