@@ -65,11 +65,11 @@ operations_ev <- read_csv("operations/operations_EV_Aug2022.csv")
 operations_final <- bind_rows(operations,operations_ev)
 
 #output
-write.csv(operations_final, "operations/lithiumSupplyChainMapData.csv", row.names = FALSE,na='')
+write.csv(operations_final, "operations_final.csv", row.names = FALSE,na='')
 
 # Dec 2022 update -------------------------------------------------------
 #load latest map data
-operations <- read_csv("operations/operations_final.csv")
+operations <- read_csv("operations_final.csv")
 
 #save dated version as backup
 write_csv(operations,paste("operations/archive/operations_final_",Sys.Date(),".csv",sep=""))
@@ -154,14 +154,14 @@ operations_new_clean_subset <- operations_new_clean %>%
 operations_final <- bind_rows(operations,operations_new_clean_subset)
 
 #output
-write_csv(operations_final,"lithiumSupplyChainMapData.csv")
+write_csv(operations_final,"operations_final.csv")
 
 # June 2023 update -------------------------------------------------------
 #load latest map data
-operations <- read_csv("lithiumSupplyChainMapData.csv")
+operations <- read_csv("operations_final.csv")
 
 #save dated version as backup
-write_csv(operations,paste("archive/lithiumSupplyChainMapData_",Sys.Date(),".csv",sep=""))
+write_csv(operations,paste("archive/operations_final_",Sys.Date(),".csv",sep=""))
 
 #load updated naatbatt data
 path <- "operations/operations_naatbatt_June2023.xlsx"
@@ -243,14 +243,14 @@ operations_new_clean_subset <- operations_new_clean %>%
 operations_final <- bind_rows(operations,operations_new_clean_subset)
 
 #output
-write_csv(operations_final,"lithiumSupplyChainMapData.csv")
+write_csv(operations_final,"operations_final.csv")
 
 
 
 # 
 # Adding icon field for new map app -------------------------------------------------------
 #load latest map data
-operations <- read_csv("lithiumSupplyChainMapData.csv")
+operations <- read_csv("operations_final.csv")
 
 #add icon field
 operations_icon <- mutate(operations, Icon=recode(operations[["Supply Chain Segment"]],
@@ -268,7 +268,7 @@ operations_icon <- mutate(operations, Icon=recode(operations[["Supply Chain Segm
                      "Distributor"="Support Industries"))
 
 #output
-write_csv(operations_icon,"lithiumSupplyChainMapData.csv")
+write_csv(operations_icon,"operations_final.csv")
 
 
 
