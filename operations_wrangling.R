@@ -56,12 +56,15 @@ operations <- nodes %>%
          Status2=recode(Status,
                         "Under construction"="Planned or under construction",
                         "Planned"="Planned or under construction"),
-         Updated=convertToDate(Updated),
          Workforce_dummy=replace_na(Workforce,0),
-         Workforce=replace_na(Workforce,"Unknown"))
+         Workforce=replace_na(Workforce,"Unknown"),
+         Updated=convertToDate(Updated))
+  
+
 
 #merge with EV data
-operations_ev <- read_csv("operations/operations_EV_Aug2022.csv")
+operations_ev <- read_csv("operations/operations_EV_Aug2022.csv", col_types=cols(.default="c")) %>%
+  mutate(Updated=convertToDate(Updated))
 operations_final <- bind_rows(operations,operations_ev)
 
 #output
@@ -247,7 +250,6 @@ write_csv(operations_final,"operations_final.csv")
 
 
 
-# 
 # Adding icon field for new map app -------------------------------------------------------
 #load latest map data
 operations <- read_csv("operations_final.csv")
